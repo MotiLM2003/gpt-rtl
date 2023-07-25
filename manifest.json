@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Chat GPT RTL",
+  "version": "1.0",
+  "permissions": ["activeTab", "storage", "tabs", "webNavigation", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {}
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "host_permissions": ["<all_urls>"]
+}
